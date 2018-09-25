@@ -24,7 +24,7 @@ import java.net.URL
 
 import org.apache.commons.io.FileUtils
 import org.apache.mxnet.{Context, NDArrayCollector}
-import org.apache.mxnetexamples.Util
+import org.apache.mxnetexamples.utils.Util
 
 import sys.process.Process
 

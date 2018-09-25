@@ -28,7 +28,7 @@ import org.apache.commons.io.FileUtils
 import org.apache.mxnet.{Context, DataBatch, DataDesc, DataIter, EvalMetric, Executor, NDArray, NDArrayCollector, Shape, Symbol, Xavier}
 import org.apache.mxnet.DType.DType
 import org.apache.mxnet.optimizer.RMSProp
-import org.apache.mxnetexamples.Util
+import org.apache.mxnetexamples.utils.Util
 
 import scala.collection.immutable.ListMap
 import scala.sys.process.Process

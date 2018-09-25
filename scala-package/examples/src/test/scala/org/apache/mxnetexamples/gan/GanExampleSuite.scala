@@ -20,7 +20,7 @@ package org.apache.mxnetexamples.gan
 import java.io.File
 
 import org.apache.mxnet.{Context, NDArrayCollector}
-import org.apache.mxnetexamples.Util
+import org.apache.mxnetexamples.utils.Util
 import org.scalatest.{BeforeAndAfterAll, FunSuite, Ignore}
 import org.slf4j.LoggerFactory
 

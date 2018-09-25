@@ -22,7 +22,7 @@ import java.net.URL
 
 import org.apache.commons.io.FileUtils
 import org.apache.mxnet.{Context, NDArrayCollector}
-import org.apache.mxnetexamples.Util
+import org.apache.mxnetexamples.utils.Util
 import org.scalatest.{BeforeAndAfterAll, FunSuite}
 import org.slf4j.LoggerFactory
 

@@ -17,12 +17,11 @@
 
 package org.apache.mxnetexamples.imclassification
 
-import java.util.concurrent._
-
-import org.apache.mxnetexamples.imclassification.models._
-import org.apache.mxnetexamples.imclassification.util.Fitter
 import org.apache.mxnet._
 import org.apache.mxnetexamples.imclassification.datasets.{MnistIter, SyntheticDataIter}
+import org.apache.mxnetexamples.imclassification.models._
+import org.apache.mxnetexamples.imclassification.util.Fitter
+import org.apache.mxnetexamples.utils.PerformanceMonitor
 import org.kohsuke.args4j.{CmdLineParser, Option}
 import org.slf4j.LoggerFactory
 
@@ -109,6 +108,10 @@ object TrainModel {
   def main(args: Array[String]): Unit = {
     val inst = new TrainModel
     val parser: CmdLineParser = new CmdLineParser(inst)
+    val performanceMonitor = if (inst.performanceLog != null) {
+      Some(org.apache.mxnetexamples.utils.PerformanceMonitor(inst.performanceLog))
+    }
+    else None
     try {
       parser.parseArgument(args.toList.asJava)
 
@@ -137,6 +140,8 @@ object TrainModel {
         KVStoreServer.init(envs.toMap)
       }
 
+      performanceMonitor.map(_ => performanceMonitor.start)
+
       if (inst.role != "worker") {
         logger.info("Start KVStoreServer for scheduler & servers")
         KVStoreServer.start()
@@ -153,9 +158,11 @@ object TrainModel {
       case ex: Exception => {
         logger.error(ex.getMessage, ex)
         parser.printUsage(System.err)
+        performanceMonitor.map(_ => performanceMonitor.stop)
         sys.exit(1)
       }
     }
+    performanceMonitor.map(_ => performanceMonitor.stop)
   }
 }
 
@@ -172,6 +179,8 @@ class TrainModel {
   @Option(name = "--benchmark", usage = "Benchmark to use synthetic data to measure performance")
   private val benchmark: Boolean = false
 
+  @Option(name = "--performance-log", usage = "CSV filename for the performance log")
+  private val performanceLog: String = null
   @Option(name = "--gpus", usage = "the gpus will be used, e.g. '0,1,2,3'")
   private val gpus: String = null
   @Option(name = "--cpus", usage = "the cpus will be used, e.g. '0,1,2,3'")

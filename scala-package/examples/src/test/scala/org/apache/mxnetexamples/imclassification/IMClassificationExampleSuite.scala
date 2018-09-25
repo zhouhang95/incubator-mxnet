@@ -20,7 +20,7 @@ package org.apache.mxnetexamples.imclassification
 import java.io.File
 
 import org.apache.mxnet.Context
-import org.apache.mxnetexamples.Util
+import org.apache.mxnetexamples.utils.Util
 import org.scalatest.{BeforeAndAfterAll, FunSuite}
 import org.slf4j.LoggerFactory
 
