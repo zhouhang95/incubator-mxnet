@@ -21,7 +21,7 @@
   <properties>
     <MXNET_DIR>${project.parent.basedir}/..</MXNET_DIR>
     <ARTIFACT_ID>mxnet-full_2.11-${platform}-${flavor}</ARTIFACT_ID>
-    <revision>1.5.0-SNAPSHOT</revision>
+    <revision>1.4.1-SNAPSHOT</revision>
     <repositoryId>apache.snapshots.https</repositoryId>
     <deploy_asc_types/>
     <deploy_asc_classifers/>
@@ -40,7 +40,7 @@
     <profile>
       <id>staging</id>
       <properties>
-        <revision>1.5.0</revision>
+        <revision>1.4.1</revision>
         <repositoryId>apache.releases.https</repositoryId>
         <repo_url>https://repository.apache.org/content/repositories/staging</repo_url>
         <deploy_asc_types>jar.asc,asc,asc</deploy_asc_types>
