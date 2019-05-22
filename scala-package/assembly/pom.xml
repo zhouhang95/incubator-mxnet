@@ -76,8 +76,8 @@
                     <arg>--pinentry-mode</arg>
                     <arg>loopback</arg>
                 </gpgArguments>
+                <passphraseServerId>gpg</passphraseServerId>
             </configuration>
-            <passphraseServerId>gpg</passphraseServerId>
           </plugin>
         </plugins>
       </build>
