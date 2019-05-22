@@ -73,6 +73,7 @@
     <module>examples</module>
     <module>spark</module>
     <module>assembly</module>
+    <module>externalPom</module>
     <module>deploy</module>
   </modules>
 
