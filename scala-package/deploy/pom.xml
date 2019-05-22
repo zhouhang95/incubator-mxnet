@@ -42,7 +42,7 @@
       <properties>
         <revision>1.4.1</revision>
         <repositoryId>apache.releases.https</repositoryId>
-        <repo_url>https://repository.apache.org/content/repositories/staging</repo_url>
+        <repo_url>https://repository.apache.org/service/local/staging/deploy/maven2</repo_url>
         <deploy_asc_types>jar.asc,asc,asc</deploy_asc_types>
         <deploy_asc_classifers>,sources.jar,javadoc.jar</deploy_asc_classifers>
         <deploy_asc_files>
